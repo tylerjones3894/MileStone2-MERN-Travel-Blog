@@ -1,6 +1,7 @@
 import React from 'react';
 import { AppBar, Toolbar, Typography, Button } from '@mui/material'; // Importing Material UI components
 
+// NavBar
 const Navbar = () => {
   return (
     <AppBar position="static"> {/* AppBar is a Material UI component */}
