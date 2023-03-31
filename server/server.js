@@ -1,9 +1,24 @@
+// Dependencies
 const express = require('express'); // Express web server framework
 const client = require('./db'); // MongoDB driver
+const methodOverride = require('method-override');
+const mongoose = require('mongoose')
+
+// Configuration
+require('dotenv').config();
+const PORT = process.env.PORT;
 const app = express(); // Create a new Express app
 
+// Middleware
 app.use(express.json());
+app.use(methodOverride('method'));
 
+//Routes
+app.get('/', (req, res) => {
+  res.send('Welcome to our travel blog!')
+});
+
+// Posts
 app.post('/api/posts', async (req, res) => { // Create a new post
   try { // Try to create a new post
     const post = req.body;
@@ -22,7 +37,20 @@ app.post('/api/posts', async (req, res) => { // Create a new post
   }
 });
 
-app.listen(3000, () => { // Start the server
-  console.log('API server is running on http://localhost:3000'); // Log the server URL
-});
+// Posts
+
+// Authors
+
+// Error404
+
+// Connection
+mongoose.connect(process.env.MONGODB_URI)
+  .then(() => {
+    app.listen(PORT, () => console.log(`Listening on http://localhost:${PORT}`))
+  })
+  .catch((err) => console.log(err));
+
+// app.listen(3000, () => { // Start the server
+//   console.log('API server is running on http://localhost:3000'); // Log the server URL
+// });
 
