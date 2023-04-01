@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import Slider from './Components/Slider';
+import Slider from './components/Slider';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
-import Navbar from './Components/Navbar';
+import Navbar from './components/Navbar';
 import axios from 'axios';
 
 
