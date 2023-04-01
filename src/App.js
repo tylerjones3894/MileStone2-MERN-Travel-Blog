@@ -1,6 +1,7 @@
 import React from 'react';
 import { AppBar, Toolbar, Typography, Button } from '@mui/material'; // Importing Material UI components
 
+
 // NavBar
 const Navbar = () => {
   return (
@@ -17,6 +18,9 @@ const Navbar = () => {
         <div>
           <Button color="inherit" href="/">Home</Button>
         </div>
+        <div>
+      <h1>Blog Site</h1>
+    </div>
       </Toolbar>
     </AppBar>
   );
