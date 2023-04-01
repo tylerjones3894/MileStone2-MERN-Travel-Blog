@@ -1,71 +1,39 @@
-import React, { useState, useEffect } from 'react';
+const express = require('express');
+const Post = require('./models/Post');
+const router = express.Router();
 
-function BlogPostController() {
-    const [posts, setPosts] = useState([]);
+// Add a new blog post
+router.post('/add', async (req, res) => {
+  const { title, blogDescription, details, date, imageUrl } = req.body; // Destructuring the request body
 
-    useEffect(() => {
-        fetch('/api/posts')
-        .then(response => response.json())
-        .then(data => setPosts(data));
-    }, []);
-return (
-    <div>
-        {posts.map(post => (
-            <div key={post.id}>
-                <h2>{post.title}</h2>
-                <p>{post.body}</p>
-    </div>
-))}
-</div>
-);
-}
+  if (!title || !blogDescription || !details || !date || !imageUrl) { // Check if all fields are filled
+    return res.status(400).json({ message: 'All fields are required' }); // If not, return a 400 status code and a message
+  }
 
-//new blog
-function NewBlogPostController() {
-    const [title, setTitle] = useState('');
-    const [body, setBody] = useState('');
+  try { // If all fields are filled, create a new post
+    const newPost = new Post({
+      title,
+      blogDescription,
+      details,
+      date,
+      imageUrl,
+    });
 
-    function handleSubmit(event) {
-        event.preventDefault();
+    await newPost.save(); // Save the new post to the database
+    res.status(201).json(newPost); // Return a 201 status code and the new post
+  } catch (err) { // If there's an error, return a 500 status code and a message
+    res.status(500).json({ message: 'Error creating post' }); // Log the error
+  }
+});
 
-        const data = { title, body };
+// Get all blog posts
+router.get('/', async (req, res) => {
+  try { // Try to get all posts
+    const posts = await Post.find({}); // Find all posts
+    res.status(200).json(posts); // Return a 200 status code and the posts
+  } catch (err) { // If there's an error, return a 500 status code and a message
+    res.status(500).json({ message: 'Error fetching posts' }); // Log the error
+  }
+});
 
-        fetch('/api/posts', {
-            method: 'POST',
-            headers: {'Conent-Type': 'application/json' },
-            body: JSON.stringify(data)
-        })
-        .then(response => response.json())
-        .then(data => {
-            console.log(data);
-            setTitle('');
-            setBody('');
-        });
-    }
-
-    return (
-        <form onSubmit={handleSubmit}>
-            <div>
-                <label htmlFor='title'>title:</label>
-                <input
-                    type='text'
-                    id='title'
-                    value={title}
-                    onChange={event => setTitle(event.target.value)}
-                />
-            </div>
-            <div>
-                <label htmlFor='body'>body:</label>
-                <textarea
-                id='body'
-                value={body}
-                onChange={event => setBody(event.target.value)}
-                />
-            </div>
-            <button type='submit'>Create Post</button>
-        </form>
-    );
-}
-
-
-export default BlogPostController;
+module.exports = router; // Export the router
