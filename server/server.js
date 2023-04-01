@@ -1,37 +1,43 @@
  // Configuration
- const express = require('express'); // Express web server framework
- const methodOverride = require('method-override');
- const mongoose = require('mongoose')
- require('dotenv').config();
- const PORT = process.env.PORT;
- const app = express(); // Create a new Express app
+const methodOverride = require('method-override');
+require('dotenv').config();
+const express = require('express');
+const mongoose = require('mongoose');
+const postController = require('./postController');
 
 
  // Middleware
- app.use(express.json());
- app.use(methodOverride('method'));
-
-// //Routes
- app.get('/', (req, res) => {
-   res.send('Welcome to our travel blog!')
- });
-
- // Controllers
- const postController = require('./controllers/post_controller'); // Import the post controller
- app.use('/posts', postController); // Use the post controller for all routes starting with /posts
+app.use(express.json()); // Parse JSON bodies
+app.use(methodOverride('method')); // Allow POST, PUT and DELETE from a form
 
 
- // Error404
- app.get ('*', (req, res) => {
-   res.status(404).send('Error 404: Page not found');
- });
+const app = express(); // Create an Express app
+const PORT = process.env.PORT || 3000; // Use the port from the environment or 3000
+const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost:27017/blog';
 
- // Connection
- mongoose.connect(process.env.MONGODB_URI)
-   .then(() => {
-     app.listen(PORT, () => console.log(`Listening on http://localhost:${PORT}`))
-   })
-   .catch((err) => console.log(err));
+mongoose.connect(MONGODB_URI, { // Connect to the database
+  useNewUrlParser: true, // These options are to avoid deprecation warnings
+  useUnifiedTopology: true, // These options are to avoid deprecation warnings
+});
+
+mongoose.connection.on('connected', () => { // Callback function to let us know we're connected
+  console.log('Connected to MongoDB'); // Log that we're connected
+});
+
+mongoose.connection.on('error', (err) => { // Callback function to let us know if there's an error
+  console.error('Error connecting to MongoDB:', err); // Log the error
+});
+
+// Middleware for parsing JSON request bodies
+app.use(express.json());
+
+// Use the postController for all routes starting with /api/posts
+app.use('/api/posts', postController); // Use the postController for all routes starting with /api/posts
+
+app.listen(PORT, () => { // Start the server
+  console.log(`Server is running on port ${PORT}`); // Log that the server is running
+});
+
 
 
 
