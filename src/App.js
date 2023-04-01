@@ -8,6 +8,7 @@ import axios from 'axios';
 const API= "http://localhost:3000"
 
 const App = () => {
+
   const [data, setData] = useState([]);
 
   useEffect(() => {
