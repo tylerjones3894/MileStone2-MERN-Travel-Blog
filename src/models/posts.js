@@ -7,20 +7,26 @@ const { Schema } = mongoose;
 const postSchema = new Schema({
     title: {
         type: String,
-        require: true
+        required: true
     },
-    author: {
+    blogDescription: {
+        type: String,
+        required: true
+    },
+    details: {
         type: String
     },
-    image: {
-        type: String
+    date: {
+        type: String,
+        required: true
     },
-    content: {
-        type: String
+    imageUrl: {
+        type: String,
+        required: true
     }
 })
 
 // model and export
-const Post = mongoose.model('Posts', postSchema)
+const Post = mongoose.model('Post', postSchema)
 
 module.exports = Post
