@@ -1,7 +1,20 @@
-const { MongoClient } = require('mongodb'); // MongoDB driver
-require('dotenv').config(); // Load environment variables
+const mongoose = require('mongoose');
 
-const uri = process.env.MONGODB_URI; // MongoDB connection string
-const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true }); // Create a new MongoClient
+const connect = async () => {
+  try {
+    await mongoose.connect('mongodb+srv://marbakerswe:gkNohNHAzW4nxj3N@cluster0.7fb42vp.mongodb.net/test', {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+      useFindAndModify: false,
+      useCreateIndex: true,
+    });
+    console.log('MongoDB connected.');
+  } catch (error) {
+    console.error('Error connecting to MongoDB:', error);
+    process.exit(1);
+  }
+};
 
-module.exports = client;
+module.exports = {
+  connect,
+};
