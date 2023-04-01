@@ -1,6 +1,6 @@
 // default view for edit/new posts
 import React from 'react';
-import Navbar from '../../components/Navbar';
+import Navbar from '../../Components/Navbar';
 
 
 const Default = ({ children }) => {

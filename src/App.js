@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import Slider from './components/Slider';
+import Slider from './Components/Slider';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import Default from './views/layouts/Default';
-import CardComponent from './components/Card';
 
 
+const API= "http://localhost:3000"
 
 
 const App = () => {
@@ -49,11 +49,8 @@ const App = () => {
 
   return (
     <div>
-      <Default>
       <Slider />
-      <CardComponent />
       {/* Add other components or views here */}
-    </Default>
     </div>
   );
 };

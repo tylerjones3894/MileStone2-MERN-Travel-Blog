@@ -2,6 +2,7 @@
 
 // Dependencies
 const mongoose = require('mongoose');
+const { StringDecoder } = require('string_decoder');
 const { Schema } = mongoose;
 
 const postSchema = new Schema({
@@ -9,18 +10,21 @@ const postSchema = new Schema({
         type: String,
         require: true
     },
-    author: {
+    blogDescription: {
         type: String
     },
-    image: {
+    details: {
         type: String
     },
-    content: {
+    date: {
+        type: String
+    },
+    imageUrl: {
         type: String
     }
 })
 
 // model and export
-const Post = mongoose.model('Posts', postSchema)
+const Post = mongoose.model('Post', postSchema)
 
 module.exports = Post
