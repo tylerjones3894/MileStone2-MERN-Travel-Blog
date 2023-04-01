@@ -6,10 +6,6 @@
  const PORT = process.env.PORT;
  const app = express(); // Create a new Express app
 
- const authorRouter = require('./controllers/authorcontroller');
-
- app.use('/authors', authorRouter)
-
 
  // Middleware
  app.use(express.json());
@@ -21,11 +17,8 @@
  });
 
  // Controllers
- const postController = require('./controllers/postcontroller'); // Import the post controller
- app.use('/posts', postController.createPost); // Use the post controller for all routes starting with /posts
-
- const authorController = require('./controllers/authorcontroller'); // Import the author controller
- app.use('/authors', authorController); // Import the author controller
+ const postController = require('./controllers/post_controller'); // Import the post controller
+ app.use('/posts', postController); // Use the post controller for all routes starting with /posts
 
 
  // Error404
