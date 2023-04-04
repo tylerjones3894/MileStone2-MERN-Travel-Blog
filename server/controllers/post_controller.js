@@ -1,5 +1,5 @@
 const express = require('express');
-const Post = require('./models/Post');
+const Post = require('../models/posts.js');
 const router = express.Router();
 
 // Add a new blog post
@@ -28,12 +28,17 @@ router.post('/add', async (req, res) => {
 
 // Get all blog posts
 router.get('/', async (req, res) => {
+  console.log('GET /posts route triggered'); // Add this line
+  
   try { // Try to get all posts
-    const posts = await Post.find({}); // Find all posts
+    const posts = await Post.find(); // Find all posts
+    console.log('Fetched posts:', posts); // Add this line
     res.status(200).json(posts); // Return a 200 status code and the posts
   } catch (err) { // If there's an error, return a 500 status code and a message
+    console.error('Error in GET /posts:', err); // Add this line
     res.status(500).json({ message: 'Error fetching posts' }); // Log the error
   }
 });
+
 
 module.exports = router; // Export the router
