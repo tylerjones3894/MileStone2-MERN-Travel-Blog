@@ -1,9 +1,6 @@
-// schema for blog posts
-
-// Dependencies
+// Schema for blog posts
 const mongoose = require('mongoose');
 const { Schema } = mongoose;
-const SamplePost = require('../models/samplePost.js');
 
 
 const postSchema = new Schema({

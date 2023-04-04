@@ -59,7 +59,6 @@ app.post('/posts', async (req, res) => {
 });
 
 
-
 // Use the postController for all routes starting with /api/posts
 const postController = require('./controllers/post_controller');
 app.use('/posts', postController); // Use the postController for all routes starting with /api/posts
