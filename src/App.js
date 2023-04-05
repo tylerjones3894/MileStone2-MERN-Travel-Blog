@@ -5,7 +5,7 @@ import Navbar from './components/Navbar';
 import BlogCarousel from './components/BlogCarousel';
 import PostDetails from './components/PostDetails';
 import AllPosts from './components/AllPosts';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+// import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import './App.css';
 
 
@@ -30,16 +30,20 @@ const App = () => {
   };
 
   return (
-    <Router>
-      <div>
-        <Navbar />
-        <Slider />
-        <Routes>
-          <Route path="/" element={<BlogCarousel posts={data} />} />
-          <Route path="/posts/:postId" element={<PostDetails posts={data} />} />
-        </Routes>
-      </div>
-    </Router>
+    <div>
+      <Navbar />
+      <Slider />
+    </div>
+    // <Router>
+    //   <div>
+    //     <Navbar />
+    //     <Slider />
+    //     <Routes>
+    //       <Route path="/" element={<BlogCarousel posts={data} />} />
+    //       <Route path="/posts/:postId" element={<PostDetails posts={data} />} />
+    //     </Routes>
+    //   </div>
+    // </Router>
   );
 };
 

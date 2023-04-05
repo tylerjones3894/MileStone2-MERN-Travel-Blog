@@ -10,7 +10,6 @@ const app = express(); // Create an Express app
 const PORT = process.env.PORT || 8080; // Use the port from the environment or 3000
 const MONGODB = process.env.MONGODB_URI || 'mongodb+srv://marbakerswe:REpoIYRDjBeW0O3c@cluster0.7fb42vp.mongodb.net/Travel_Blog?retryWrites=true&w=majority';
 
-
 // Middleware
 app.use(express.json()); // Parse JSON bodies
 app.use(methodOverride('_method')); // Allow POST, PUT and DELETE from a form
@@ -34,8 +33,11 @@ app.get('/posts', async (req, res) => {
   }
 });
 
+app.get ('/tyler', (req, res) => {
+  res.send('Hello Tyler');
+});
 
-app.post('/posts', async (req, res) => {
+app.post('/edit', async (req, res) => {
   const { title, blogDescription, details, date, imageUrl } = req.body;
 
   if (!title || !blogDescription || !details || !date || !imageUrl) {

@@ -25,7 +25,7 @@ const Slider = () => {
       >
         <div>
           <video
-            src="http://marbakerswe.com/wp-content/uploads/2023/04/1385734322.mp4"
+            src="http://marbakerswe.com/wp-content/uploads/2023/04/clideo_editor_d904f39c208d4c968eb09381438b6517.mp4"
             muted
             loop
             autoPlay
