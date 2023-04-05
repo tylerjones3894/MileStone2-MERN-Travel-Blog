@@ -61,7 +61,7 @@ app.post('/posts', async (req, res) => {
 
 // Use the postController for all routes starting with /api/posts
 const postController = require('./controllers/post_controller');
-app.use('/posts', postController); // Use the postController for all routes starting with /api/posts
+app.use('/api', postController); // Use the postController for all routes starting with /api/posts
 
 app.listen(PORT, () => { // Start the server
   console.log(`Server is running on port ${PORT}`); // Log that the server is running
