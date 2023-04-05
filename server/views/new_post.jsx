@@ -29,7 +29,7 @@ const NewPost = (props) => {
   // next, create a form component using Material UI's box component
   // the onSubmit is passed as a handleSubmit function so it can take care of the form submission
   return (
-    <Box component="form" onSubmit={handleSubmit} sx={{ mt: 3 }}> 
+    <Box component="form" action="/posts" method="POST" onSubmit={handleSubmit} sx={{ mt: 3 }}> 
       <Typography variant="h4" gutterBottom>
         Add Blog Post
       </Typography> 

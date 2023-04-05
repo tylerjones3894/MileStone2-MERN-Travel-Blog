@@ -42,18 +42,4 @@ export default function Error() {
   );
 }
 
-// const React = require('react');
-
-// const error404 = () => {
-//     return (
-//         <def>
-//             <main>
-//                 <h1>404: PAGE NOT FOUND</h1>
-//                 <img href="https://grownuptravelguide.com/wp-content/uploads/2020/04/AdobeStock_323158365.jpeg" alt="Luggage not found"></img>
-//                 <p>Sorry, this page got lost in transit!</p>
-//             </main>
-//         </def>
-//     )
-// }
-
-// module.export = error404
+module.export = error404
