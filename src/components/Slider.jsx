@@ -9,7 +9,7 @@ const Slider = () => {
       sx={{
         width: '100%',
         marginTop: 0,
-        height: '400px',
+        height: '600px', 
         overflow: 'hidden',
         position: 'relative',
       }}
@@ -24,28 +24,17 @@ const Slider = () => {
         transitionTime={1000}
       >
         <div>
-          <img
-            src="https://images.unsplash.com/photo-1530789253388-582c481c54b0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"
-            alt="Image 1"
-            style={{ height: '400px', objectFit: 'cover' }}
+          <video
+            src="http://marbakerswe.com/wp-content/uploads/2023/04/1385734322.mp4"
+            muted
+            loop
+            autoPlay
+            playbackRate={0.1} // Set the playback rate to 0.5 to slow down the video by half
+            style={{ height: '600px', width: '100%', objectFit: 'cover' }}
           />
-          <p className="legend">Image 1</p>
-        </div>
-        <div>
-          <img
-            src="https://images.unsplash.com/photo-1506104489822-562ca25152fe?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1169&q=80"
-            alt="Image 2"
-            style={{ height: '400px', objectFit: 'cover' }}
-          />
-          <p className="legend">Image 2</p>
-        </div>
-        <div>
-          <img
-            src="https://images.unsplash.com/photo-1524850011238-e3d235c7d4c9?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1128&q=80"
-            alt="Image 3"
-            style={{ height: '400px', objectFit: 'cover' }}
-          />
-          <p className="legend">Image 3</p>
+          <div style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', color: '#fff', textAlign: 'center', zIndex: '1', cursor: 'default', pointerEvents: 'none', width: '100%', maxWidth: '800px' }}>
+          <h1 style={{ fontSize: '50px', fontWeight: 'bold', margin: '0', fontFamily: 'Lato', fontWeight: 300 }}>Discover the world, one trip at a time.</h1>
+          </div>
         </div>
       </Carousel>
     </Box>
