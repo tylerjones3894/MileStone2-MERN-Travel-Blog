@@ -42,6 +42,8 @@ const Slider = () => {
           />
           <div style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', color: '#fff', textAlign: 'center', zIndex: '1', cursor: 'default', pointerEvents: 'none', width: '100%', maxWidth: '800px' }}>
           <h1 style={{ fontSize: '43px', margin: '0', fontFamily: 'Lato', fontWeight: 600 }}>Discover the world, one trip at a time.</h1>
+
+
           </div>
         </div>
       </Carousel>

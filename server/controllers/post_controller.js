@@ -56,7 +56,7 @@ router.get('/:id', (req, res) => {
 })
 
 // Edit Post
-router.get('/:id/edit', async (req, res) => {
+router.post('/:id/edit', async (req, res) => {
   try {
     const foundPost = await Post.findById(req.params.find)
 

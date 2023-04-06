@@ -33,6 +33,19 @@ app.get('/posts', async (req, res) => {
   }
 });
 
+app.get('/posts/:_id', async (req, res) => {
+  try {
+    const posts = await Post.findById(); // Find all blog posts in the database
+    res.status(200).json(posts); // Return the found blog posts as JSON
+  } catch (err) {
+    res.status(500).json({ message: 'Error fetching posts' }); // In case of error, return a 500 status code and a message
+  }
+});
+
+app.get ('/tyler', (req, res) => {
+  res.send('Hello Tyler');
+});
+
 app.post('/edit', async (req, res) => {
   const { title, author, date, destination, postContent, imageUrl} = req.body;
 

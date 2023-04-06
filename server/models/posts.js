@@ -23,9 +23,9 @@ const postSchema = new Schema({
     imageUrl: {
         type: String
     }
-})
+});
 
 // model and export
-const Post = mongoose.model('Post', postSchema)
+const Post = mongoose.model('post', postSchema)
 
 module.exports = Post;
