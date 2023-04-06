@@ -1,6 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
-import { AppBar, Toolbar, Typography, Button, InputBase, Box, IconButton } from '@mui/material';
+import { AppBar, Toolbar, Typography, Button, InputBase, Box, IconButton, Link } from '@mui/material';
 import { alpha, styled } from '@mui/material/styles';
 import MenuIcon from '@mui/icons-material/Menu';
 import SearchIcon from '@mui/icons-material/Search';
@@ -27,10 +27,6 @@ const Search = styled('div')(({ theme }) => ({
     marginLeft: theme.spacing(3),
     width: 'auto',
   },
-  transition: theme.transitions.create('width'),
-  '&:focus-within': {
-    width: '20%',
-  }
 }));
 
 const SearchIconWrapper = styled('div')(({ theme }) => ({
@@ -53,9 +49,6 @@ const InputBaseWrapper = styled(InputBase)(({ theme }) => ({
     [theme.breakpoints.up('md')]: {
       width: '20ch',
     },
-    '&:focus': {
-      outline: 'none',
-    },
   },
 }));
 
@@ -63,44 +56,44 @@ const Navbar = () => {
   return (
     <div>
     <Router>
-    <AppBar position="static" sx={{ backgroundColor: '#00A19D' }}>
-  <Toolbar>
+    <AppBar position="static" sx={{ backgroundColor: '#00464A' }}>
+      <Toolbar>
         <IconButton
           size="large"
           edge="start"
           color="inherit"
           aria-label="menu"
-          sx={{ mr: 2, '&:hover': { backgroundColor: '#029390' } }}
+          sx={{ mr: 2 }}
         >
           <MenuIcon />
         </IconButton>
-        <Typography variant="h6" component="div" sx={{ flexGrow: 1, fontFamily: 'Pacifico', fontSize: '33px', color: '#ffffff' }}>
+        <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
           <Box sx={{ display: 'flex', alignItems: 'center' }}>
-            <Box
+            {/* <Box
               component="img"
-              src="https://bridge277.qodeinteractive.com/wp-content/uploads/2019/10/h1-logo-01.png"
+              src="#"
               sx={{ width: 40, mr: 1 }}
-            />
-            Travelers’ Netflix
+            /> */}
+            Travel Blog
           </Box>
         </Typography>
-        <Button sx={{ '&:hover': { backgroundColor: '#029390' } }} color="inherit" to="/">HOME</Button>
-        <Button sx={{ '&:hover': { backgroundColor: '#029390' } }} color="inherit" to="/about">ABOUT US</Button>
-        <Button sx={{ '&:hover': { backgroundColor: '#029390' } }} color="inherit" to="/destination">DESTINATION</Button>
-        <Button sx={{ '&:hover': { backgroundColor: '#029390' } }} color="inherit" to="/contact">CONTACT</Button>
+        <Button color="inherit" to="/">HOME</Button>
+        <Button color="inherit" to="/about">ABOUT US</Button>
+        <Button color="inherit" to="/destination">DESTINATION</Button>
+        <Button color="inherit" to="/contact">CONTACT</Button>
         <Search>
           <SearchIconWrapper>
             <SearchIcon />
           </SearchIconWrapper>
-          <InputBaseWrapper placeholder="Traveling to..." />
+          <InputBaseWrapper placeholder="Search…" />
         </Search>
-        <IconButton sx={{ '&:hover': { backgroundColor: '#029390' } }} color="inherit">
+        <IconButton color="inherit">
           <InstagramIcon />
         </IconButton>
-        <IconButton sx={{ '&:hover': { backgroundColor: '#029390' } }} color="inherit">
+        <IconButton color="inherit">
           <FacebookIcon />
         </IconButton>
-        <IconButton sx={{ '&:hover': { backgroundColor: '#029390' } }} color="inherit">
+        <IconButton color="inherit">
           <TwitterIcon />
         </IconButton>
       </Toolbar>

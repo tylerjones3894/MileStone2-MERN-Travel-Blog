@@ -1,69 +1,98 @@
-.App {
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@100;400&display=swap');
+
+body {
+  font-family: 'Lato', sans-serif;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  background-color: #F7F7F7;
+  font-size: 16px;
+  line-height: 1.5;
+  margin: 0;
+  padding: 0;
+}
+
+
+img {
+  width: 350px;
+  height: 200px;
+  overflow: hidden;
+}
+
+.blog-posts {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  margin: auto;
+}
+
+.post {
+  width: calc(33.33% - 10px); /* Subtracting 10px to account for margins */
+  font-family: 'Lato', sans-serif;
+  margin-bottom: 20px;
+  background-color: #ffffff;
+  width: 350px;
+  margin: 10px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Add a drop shadow */
+}
+
+
+.post-content {
+  padding: 10px;
+  
+}
+
+.content {
+  margin-bottom: 25px;
+}
+
+
+ .button-container {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 10px;
+}
+
+
+.post-location, .post-author, .post-date {
+  text-align: right;
+  font-size: 11px;
+  font-style: italic;
+  margin-top: 0;
+}
+.headline-text {
+  line-height: 1.5;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  align-content: center;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.blog-title{
+  font-size: 30px;
+  font-weight: 400;
+  margin-bottom: 0;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.container {
+  max-width: 1110px;
+  margin: auto;
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-content: center;
 }
 
-.App-link {
-  color: #61dafb;
+h3{
+  font-size: 20px;
+  font-weight: 400;
+  margin-bottom: 0;
+  margin-top: 1px;
+  font-family: 'Lato', sans-serif;
+  color: #047386;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-.post-card {
-  width: 100%;
-  margin-bottom: 20px;
-  border: 1px solid #ccc;
-  padding: 20px;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1);
-}
-
-.post-card img {
-  width: 100%;
-  height: auto;
-  object-fit: cover;
-  margin-bottom: 10px;
-}
-
-.post-card h2 {
-  font-size: 24px;
-  margin-bottom: 10px;
-}
-
-.post-card p {
-  margin-bottom: 10px;
-}
-
-.social-icons {
-  display: flex;
-  justify-content: flex-end;
-  gap: 8px;
+p{
+  font-size: 13px;
+  font-weight: 400;
+  margin-bottom: 0;
+  font-family: 'Lato', sans-serif;
 }
 
