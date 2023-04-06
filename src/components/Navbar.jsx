@@ -27,6 +27,10 @@ const Search = styled('div')(({ theme }) => ({
     marginLeft: theme.spacing(3),
     width: 'auto',
   },
+  transition: theme.transitions.create('width'),
+  '&:focus-within': {
+    width: '20%',
+  }
 }));
 
 const SearchIconWrapper = styled('div')(({ theme }) => ({
@@ -49,6 +53,9 @@ const InputBaseWrapper = styled(InputBase)(({ theme }) => ({
     [theme.breakpoints.up('md')]: {
       width: '20ch',
     },
+    '&:focus': {
+      outline: 'none',
+    },
   },
 }));
 
@@ -56,44 +63,44 @@ const Navbar = () => {
   return (
     <div>
     <Router>
-    <AppBar position="static" sx={{ backgroundColor: '#00464A' }}>
-      <Toolbar>
+    <AppBar position="static" sx={{ backgroundColor: '#00A19D' }}>
+  <Toolbar>
         <IconButton
           size="large"
           edge="start"
           color="inherit"
           aria-label="menu"
-          sx={{ mr: 2 }}
+          sx={{ mr: 2,  }}
         >
           <MenuIcon />
         </IconButton>
-        <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+        <Typography variant="h6" component="div" sx={{ flexGrow: 1, fontFamily: 'Pacifico', fontSize: '33px', color: '#ffffff' }}>
           <Box sx={{ display: 'flex', alignItems: 'center' }}>
             <Box
               component="img"
               src="/logo.png"
               sx={{ width: 40, mr: 1 }}
             />
-            Travel Blog
+            Travelers’ Netflix
           </Box>
         </Typography>
-        <Button color="inherit" to="/">HOME</Button>
-        <Button color="inherit" to="/about">ABOUT US</Button>
-        <Button color="inherit" to="/destination">DESTINATION</Button>
-        <Button color="inherit" to="/contact">CONTACT</Button>
+        <Button sx={{ '&:hover': { backgroundColor: '#029390' } }} color="inherit" to="/">HOME</Button>
+        <Button sx={{ '&:hover': { backgroundColor: '#029390' } }} color="inherit" to="/about">ABOUT US</Button>
+        <Button sx={{ '&:hover': { backgroundColor: '#029390' } }} color="inherit" to="/destination">DESTINATION</Button>
+        <Button sx={{ '&:hover': { backgroundColor: '#029390' } }} color="inherit" to="/contact">CONTACT</Button>
         <Search>
           <SearchIconWrapper>
             <SearchIcon />
           </SearchIconWrapper>
-          <InputBaseWrapper placeholder="Search…" />
+          <InputBaseWrapper placeholder="Traveling to..." />
         </Search>
-        <IconButton color="inherit">
+        <IconButton sx={{ '&:hover': { backgroundColor: '#029390' } }} color="inherit">
           <InstagramIcon />
         </IconButton>
-        <IconButton color="inherit">
+        <IconButton sx={{ '&:hover': { backgroundColor: '#029390' } }} color="inherit">
           <FacebookIcon />
         </IconButton>
-        <IconButton color="inherit">
+        <IconButton sx={{ '&:hover': { backgroundColor: '#029390' } }} color="inherit">
           <TwitterIcon />
         </IconButton>
       </Toolbar>
