@@ -8,13 +8,16 @@ const postSchema = new Schema({
         type: String,
         required: true
     },
-    blogDescription: {
-        type: String
-    },
-    details: {
+    author: {
         type: String
     },
     date: {
+        type: String
+    },
+    destination: {
+        type: String
+    },
+    postContent: {
         type: String
     },
     imageUrl: {

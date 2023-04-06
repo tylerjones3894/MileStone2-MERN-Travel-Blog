@@ -2,11 +2,8 @@ import React, { useState, useEffect } from 'react';
 import Slider from './components/Slider';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import Navbar from './components/Navbar';
-import BlogCarousel from './components/BlogCarousel';
-import PostDetails from './components/PostDetails';
-import AllPosts from './components/AllPosts';
-// import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import './App.css';
+import PostCard from './components/PostCard';
+
 
 
 const App = () => {
@@ -31,19 +28,14 @@ const App = () => {
 
   return (
     <div>
-      <Navbar />
-      <Slider />
+    <Navbar />
+    <Slider />
+    <div className="post-list">
+      {data.map((post) => (
+        <PostCard key={post._id} post={post} />
+      ))}
     </div>
-    // <Router>
-    //   <div>
-    //     <Navbar />
-    //     <Slider />
-    //     <Routes>
-    //       <Route path="/" element={<BlogCarousel posts={data} />} />
-    //       <Route path="/posts/:postId" element={<PostDetails posts={data} />} />
-    //     </Routes>
-    //   </div>
-    // </Router>
+  </div>
   );
 };
 

@@ -8,9 +8,10 @@ import Typography from '@mui/material/Typography';
 //after importing React and basic design from Material UI, we then set our properties 
 const NewPost = (props) => {
   const [title, setTitle] = useState('props.title'); // prop needed to create a title
-  const [details, setDetails] = useState('props.details'); // prop needed to add in the details 
-  const [blogDescription, setblogDescription] = useState('props.blogDescription'); // prop needed to ardd in the description for the new blog post 
-  const [date, setDate] = useState('props.date'); // prop needed to include the date of the blog post 
+  const [author, setAuthor] = useState('props.author'); // prop needed to add in the details 
+  const [date, setdate] = useState('props.date'); // prop needed to ardd in the description for the new blog post 
+  const [destination, setDestination] = useState('props.destination'); // prop needed to include the date of the blog post 
+  const [postContent, setContent] = useState('props.postContent'); // prop needed to include the date of the blog post 
   const [imageUrl, setImageUrl] = useState('props.imageUrl'); // prop needed to insert the picture for the blog post 
 
   const handleSubmit = (e) => {
@@ -20,9 +21,10 @@ const NewPost = (props) => {
 
     // Clearing the form inputs
     setTitle('');
-    setDetails('');
-    setblogDescription('');
-    setDate('');
+    setAuthor('');
+    setdate('');
+    setDestination('');
+    setContent('');
     setImageUrl('');
   };
 
@@ -48,7 +50,7 @@ const NewPost = (props) => {
           <TextField
             id="details"
             label="Details"
-            value={details}
+            value={author}
             onChange={(e) => setDetails(e.target.value)}
             multiline
             rows={4}
@@ -60,7 +62,7 @@ const NewPost = (props) => {
           <TextField
             id="blogDescription"
             label="blogDescription"
-            value={blogDescription}
+            value={destination}
             onChange={(e) => setblogDescription(e.target.value)}
             fullWidth
             required
@@ -72,6 +74,16 @@ const NewPost = (props) => {
             label="Date"
             value={date}
             onChange={(e) => setDate(e.target.value)}
+            fullWidth
+            required
+          />
+        </Grid>
+        <Grid item xs={12}>
+          <TextField
+            id="post-content"
+            label="Post Content"
+            value={postContent}
+            onChange={(e) => setImageUrl(e.target.value)}
             fullWidth
             required
           />
