@@ -1,6 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
-import { AppBar, Toolbar, Typography, Button, InputBase, Box, IconButton, Link } from '@mui/material';
+import { AppBar, Toolbar, Typography, Button, InputBase, Box, IconButton } from '@mui/material';
 import { alpha, styled } from '@mui/material/styles';
 import MenuIcon from '@mui/icons-material/Menu';
 import SearchIcon from '@mui/icons-material/Search';
@@ -70,7 +70,7 @@ const Navbar = () => {
           edge="start"
           color="inherit"
           aria-label="menu"
-          sx={{ mr: 2,  }}
+          sx={{ mr: 2, '&:hover': { backgroundColor: '#029390' } }}
         >
           <MenuIcon />
         </IconButton>
