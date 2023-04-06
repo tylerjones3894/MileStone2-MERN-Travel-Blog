@@ -11,6 +11,7 @@ const PORT = process.env.PORT || 8080; // Use the port from the environment or 3
 const MONGODB = process.env.MONGODB_URI || 'mongodb+srv://marbakerswe:REpoIYRDjBeW0O3c@cluster0.7fb42vp.mongodb.net/Travel_Blog?retryWrites=true&w=majority';
 
 // Middleware
+app.set('views', __dirname + '/views');
 app.use(express.json()); // Parse JSON bodies
 app.use(methodOverride('_method')); // Allow POST, PUT and DELETE from a form
 
@@ -22,7 +23,6 @@ mongoose.connect(MONGODB, { // Connect to the database
 mongoose.connection.on('connected', () => { // When connected
   console.log('Mongoose is connected'); // Log that Mongoose is connected
 });
-
 
 app.get('/posts', async (req, res) => {
   try {

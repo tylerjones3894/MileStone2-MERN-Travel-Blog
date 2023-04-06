@@ -3,7 +3,7 @@ const Post = require('../models/posts.js');
 const router = express.Router();
 
 // Add a new blog post
-router.post('/edit', async (req, res) => {
+router.post('/new', async (req, res) => {
   const { title, blogDescription, details, date, imageUrl } = req.body; // Destructuring the request body
 
   if (!title || !blogDescription || !details || !date || !imageUrl) { // Check if all fields are filled
@@ -40,5 +40,31 @@ router.get('/', async (req, res) => {
   }
 });
 
+// Get single post
+router.get('/:id', (req, res) => {
+  Post.findById(req.params.id)
+  .populate('post')
+  .then(foundPost => {
+    res.render('Show', {
+      post: foundPost
+    })
+  })
+  .catch(err => {
+    res.render('error404')
+  })
+})
+
+// Edit Post
+router.get('/:id/edit', async (req, res) => {
+  try {
+    const foundPost = await Post.findById(req.params.find)
+
+    res.render('Edit', {
+      post: foundPost
+    })
+  } catch(err){
+    res.render('error404')
+  }
+});
 
 module.exports = router; // Export the router

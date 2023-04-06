@@ -99,6 +99,18 @@ const Navbar = () => {
       </Toolbar>
       
       <Routes>
+          {/* <Route path="/">
+            <App />
+          </Route>
+          <Route path="/about">
+            <About />
+          </Route>
+          <Route path="/destination">
+            <Destination />
+          </Route>
+          <Route path="/contact">
+            <Contact />
+          </Route> */}
         <Route path="/" component={App} />
         <Route path="/about" component={About} />
         <Route path="/destination" component={Destination} />
