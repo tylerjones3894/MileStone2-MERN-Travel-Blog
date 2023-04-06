@@ -14,19 +14,12 @@ const EditPost = ({post}) => {
                 required
                 value={post.title}
                 />
-                <label htmlFor="blogDescription">Blog Description</label>
+                <label htmlFor="author">Author</label>
                 <input
                 type="text"
-                name="blogDescription"
-                id="blogDescription"
-                value={post.blogDescription}
-                />
-                <label htmlFor="details">Details</label>
-                <input
-                type="text"
-                name="details"
-                id="details"
-                value={post.details}
+                name="author"
+                id="author"
+                value={post.author}
                 />
                 <label htmlFor="date">Date</label>
                 <input
@@ -34,6 +27,20 @@ const EditPost = ({post}) => {
                 name="date"
                 id="date"
                 value={post.date}
+                />
+                <label htmlFor="destination">Destination</label>
+                <input
+                type="text"
+                name="destination"
+                id="destination"
+                value={post.destination}
+                />
+                <label htmlFor="postContent">Content</label>
+                <input
+                type="text"
+                name="postContent"
+                id="postContent"
+                value={post.postContent}
                 />
                 <label htmlFor="imageURL">Image URL</label>
                 <input

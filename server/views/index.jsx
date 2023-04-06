@@ -1,12 +1,12 @@
 const React = require('react');
 const Default = require('./layouts/Default');
 
-const Index = ({posts, title}) => {
+const Index = ({post, title}) => {
     return (
         <Default title={title}>
             <h2>Posts</h2>
             <ul>
-                {posts.map(post => (
+                {post.map(post => (
                     <li key={post.id}>
                         <a href={`/posts/${post.id}`}>
                             {post.title}

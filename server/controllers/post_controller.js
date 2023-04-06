@@ -2,6 +2,19 @@ const express = require('express');
 const Post = require('../models/posts.js');
 const router = express.Router();
 
+// Index
+router.get('/', async (req, res) => {
+
+  try {
+    const foundPosts = await Post.find().populate()
+
+    res.render('index', {post: foundPosts, title: 'Index Page'})
+  }
+  catch(err){
+    res.render(err)
+  }
+});
+
 // Add a new blog post
 router.post('/new', async (req, res) => {
   const { title, author, date, destination, postContent, imageUrl} = req.body; // Destructuring the request body
@@ -56,16 +69,24 @@ router.get('/:id', (req, res) => {
 })
 
 // Edit Post
-router.post('/:id/edit', async (req, res) => {
+router.put('/:id/edit', async (req, res) => {
   try {
-    const foundPost = await Post.findById(req.params.find)
+    const foundPost = await Post.findById(req.params.id)
 
-    res.render('Edit', {
+    res.render('edit_post', {
       post: foundPost
     })
   } catch(err){
-    res.render('error404')
+    res.render(err)
   }
 });
+
+// Delete
+router.delete('/:id', (req, res) => {
+  Post.findByIdAndDelete(req.params.id)
+  .then(function(deletePost) {
+    res.status(303).redirect('/posts')
+  })
+})
 
 module.exports = router; // Export the router
