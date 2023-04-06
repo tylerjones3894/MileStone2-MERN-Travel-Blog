@@ -33,9 +33,9 @@ const PostDetails = () => {
     <div className="post-details">
       <img src={postDetails.imageUrl} alt={postDetails.title} />
       <h1>{postDetails.title}</h1>
-      <p>{postDetails.blogDescription}</p>
-      <p>{postDetails.details}</p>
       <p>{postDetails.date}</p>
+      <p>{postDetails.postContent}</p>
+      <p>{postDetails.author}</p>
     </div>
   );
 };

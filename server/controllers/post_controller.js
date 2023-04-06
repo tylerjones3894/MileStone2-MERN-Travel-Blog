@@ -4,18 +4,19 @@ const router = express.Router();
 
 // Add a new blog post
 router.post('/new', async (req, res) => {
-  const { title, blogDescription, details, date, imageUrl } = req.body; // Destructuring the request body
+  const { title, author, date, destination, postContent, imageUrl} = req.body; // Destructuring the request body
 
-  if (!title || !blogDescription || !details || !date || !imageUrl) { // Check if all fields are filled
+  if (!title || !author || !date || !destination || !postContent || !imageUrl) { // Check if all fields are filled
     return res.status(400).json({ message: 'All fields are required' }); // If not, return a 400 status code and a message
   }
 
   try { // If all fields are filled, create a new post
     const newPost = new Post({
       title,
-      blogDescription,
-      details,
+      author,
       date,
+      destination,
+      postContent,
       imageUrl,
     });
 

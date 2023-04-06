@@ -1,9 +1,17 @@
-import React from 'react';
+import React, { useRef, useEffect } from 'react';
 import { Box } from '@mui/material';
 import { Carousel } from 'react-responsive-carousel';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 
 const Slider = () => {
+  const videoRef = useRef();
+
+  useEffect(() => {
+    if (videoRef.current) {
+      videoRef.current.playbackRate = 1; // Set the playback rate to 0.1 to slow down the video
+    }
+  }, []);
+
   return (
     <Box
       sx={{
@@ -25,11 +33,11 @@ const Slider = () => {
       >
         <div>
           <video
+            ref={videoRef}
             src="http://marbakerswe.com/wp-content/uploads/2023/04/clideo_editor_d904f39c208d4c968eb09381438b6517.mp4"
             muted
             loop
             autoPlay
-            playbackRate={0.1} // Set the playback rate to 0.5 to slow down the video by half
             style={{ height: '600px', width: '100%', objectFit: 'cover' }}
           />
           <div style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', color: '#fff', textAlign: 'center', zIndex: '1', cursor: 'default', pointerEvents: 'none', width: '100%', maxWidth: '800px' }}>
