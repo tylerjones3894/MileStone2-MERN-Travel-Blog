@@ -69,11 +69,11 @@ const Navbar = () => {
         </IconButton>
         <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
           <Box sx={{ display: 'flex', alignItems: 'center' }}>
-            <Box
+            {/* <Box
               component="img"
-              src="https://bridge277.qodeinteractive.com/wp-content/uploads/2019/10/h1-logo-01.png"
+              src="#"
               sx={{ width: 40, mr: 1 }}
-            />
+            /> */}
             Travel Blog
           </Box>
         </Typography>
