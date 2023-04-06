@@ -71,7 +71,7 @@ const Navbar = () => {
           <Box sx={{ display: 'flex', alignItems: 'center' }}>
             <Box
               component="img"
-              src="/logo.png"
+              src="https://bridge277.qodeinteractive.com/wp-content/uploads/2019/10/h1-logo-01.png"
               sx={{ width: 40, mr: 1 }}
             />
             Travel Blog

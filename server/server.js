@@ -33,24 +33,21 @@ app.get('/posts', async (req, res) => {
   }
 });
 
-app.get ('/tyler', (req, res) => {
-  res.send('Hello Tyler');
-});
-
 app.post('/edit', async (req, res) => {
-  const { title, blogDescription, details, date, imageUrl } = req.body;
+  const { title, author, date, destination, postContent, imageUrl} = req.body;
 
-  if (!title || !blogDescription || !details || !date || !imageUrl) {
+  if (!title || !author || !date || !destination || !postContent || !imageUrl) {
     return res.status(400).json({ message: 'All fields are required' });
   }
 
   try {
     const newPost = new Post({
       title,
-      blogDescription,
-      details,
+      author,
       date,
-      imageUrl,
+      destination,
+      postContent,
+      imageUrl
     });
 
     await newPost.save();
