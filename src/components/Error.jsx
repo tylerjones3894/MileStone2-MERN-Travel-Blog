@@ -1,13 +1,14 @@
-// error page
 import React from 'react';
 import { Box, Button, Container, Typography } from '@mui/material';
 import Grid from '@mui/material/Grid';
+import { useNavigate } from 'react-router-dom';
 
-export default function Error() {
-    
-    const handleClick = () => {
-        history.push('/');
-      };
+const Error404 = () => {
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    navigate('/');
+  };
 
   return (
     <Box
@@ -27,7 +28,7 @@ export default function Error() {
             <Typography variant="h6">
               Sorry, this page was lost in transit..
             </Typography>
-            <Button onClick={'handleClick'} variant="contained">Back Home</Button>
+            <Button onClick={handleClick} variant="contained">Back Home</Button>
           </Grid>
           <Grid xs={6}>
             <img
@@ -42,4 +43,4 @@ export default function Error() {
   );
 }
 
-module.export = error404
+export default Error404;

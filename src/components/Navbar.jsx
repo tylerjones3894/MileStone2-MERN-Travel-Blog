@@ -1,17 +1,20 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
-import { AppBar, Toolbar, Typography, Button, InputBase, Box, IconButton, Link } from '@mui/material';
+import { Link } from 'react-router-dom';
+import {
+  AppBar,
+  Toolbar,
+  Typography,
+  Button,
+  InputBase,
+  Box,
+  IconButton,
+} from '@mui/material';
 import { alpha, styled } from '@mui/material/styles';
 import MenuIcon from '@mui/icons-material/Menu';
 import SearchIcon from '@mui/icons-material/Search';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import FacebookIcon from '@mui/icons-material/Facebook';
 import TwitterIcon from '@mui/icons-material/Twitter';
-
-import App from '../App';
-import About from './About';
-import Destination from './Destination';
-import Contact from './Contact';
 
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
@@ -52,10 +55,15 @@ const InputBaseWrapper = styled(InputBase)(({ theme }) => ({
   },
 }));
 
+const linkStyle = {
+  textDecoration: 'none',
+  color: 'inherit',
+};
+
 const Navbar = () => {
   return (
     <div>
-    <Router>
+  
     <AppBar position="static" sx={{ backgroundColor: '#00464A' }}>
       <Toolbar>
         <IconButton
@@ -77,10 +85,18 @@ const Navbar = () => {
             Travel Blog
           </Box>
         </Typography>
-        <Button color="inherit" to="/">HOME</Button>
-        <Button color="inherit" to="/about">ABOUT US</Button>
-        <Button color="inherit" to="/destination">DESTINATION</Button>
-        <Button color="inherit" to="/contact">CONTACT</Button>
+        <Link to="/" style={linkStyle}>
+            <Button color="inherit">HOME</Button>
+          </Link>
+          <Link to="/about" style={linkStyle}>
+            <Button color="inherit">ABOUT US</Button>
+          </Link>
+          <Link to="/destination" style={linkStyle}>
+            <Button color="inherit">DESTINATION</Button>
+          </Link>
+          <Link to="/contact" style={linkStyle}>
+            <Button color="inherit">CONTACT</Button>
+          </Link>
         <Search>
           <SearchIconWrapper>
             <SearchIcon />
@@ -97,28 +113,12 @@ const Navbar = () => {
           <TwitterIcon />
         </IconButton>
       </Toolbar>
-      
-      <Routes>
-          {/* <Route path="/">
-            <App />
-          </Route>
-          <Route path="/about">
-            <About />
-          </Route>
-          <Route path="/destination">
-            <Destination />
-          </Route>
-          <Route path="/contact">
-            <Contact />
-          </Route> */}
-        <Route path="/" component={App} />
-        <Route path="/about" component={About} />
-        <Route path="/destination" component={Destination} />
-        <Route path="/contact" component={Contact} />
-      </Routes>
+
+
+    
       
     </AppBar>
-    </Router>
+   
     </div>
   );
 };

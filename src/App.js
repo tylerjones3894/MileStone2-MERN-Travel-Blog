@@ -1,51 +1,27 @@
-import React, { useState, useEffect } from 'react';
-import Slider from './components/Slider';
-import 'react-responsive-carousel/lib/styles/carousel.min.css';
+import React from 'react';
+import { Routes, Route } from 'react-router-dom';
+import About from './components/About';
+import Destination from './components/Destination';
+import Contact from './components/Contact';
 import Navbar from './components/Navbar';
-import PostCard from './components/PostCard';
+import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import Footer from './components/Footer';
+import Home from './components/Home';
+import Error404 from './components/Error';
 import './App.css';
 
 const App = () => {
-  const [data, setData] = useState([]);
-
-  useEffect(() => {
-    fetchPosts();
-  }, []);
-
-  const fetchPosts = async () => {
-    try {
-      const response = await fetch(`/posts`);
-      if (!response.ok) {
-        throw new Error(`HTTP error! Status: ${response.status}`);
-      }
-      const postData = await response.json();
-      setData(postData);
-    } catch (error) {
-      console.error('Error fetching data:', error);
-    }
-  };
-
+ 
   return (
     <div>
       <Navbar />
-      <Slider />
-
-      <div className="headline-text">
-        <h1 className="blog-title">Recent stories from traveling</h1>
-        <p>Lorem ipsum dolor sit amet, sed erant similique forensibus no, eam suas enim forensibus et. Est no dolore malorum.</p>
-      </div>
-
-      <div className="container">
-        <div className="blog-posts">
-          {data.map((post) => (
-            <div className="post-wrapper" key={post._id}>
-              <PostCard post={post} />
-            </div>
-          ))}
-        </div>
-      </div>
-
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/destination" element={<Destination />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="*" element={<Error404 />} /> {/* Catch-all route */}
+      </Routes>
       <Footer />
     </div>
   );
