@@ -30,6 +30,10 @@ const Search = styled('div')(({ theme }) => ({
     marginLeft: theme.spacing(3),
     width: 'auto',
   },
+  transition: theme.transitions.create('width'),
+  '&:focus-within': {
+    width: '20%',
+  }
 }));
 
 const SearchIconWrapper = styled('div')(({ theme }) => ({
@@ -51,6 +55,9 @@ const InputBaseWrapper = styled(InputBase)(({ theme }) => ({
     width: '100%',
     [theme.breakpoints.up('md')]: {
       width: '20ch',
+    },
+    '&:focus': {
+      outline: 'none',
     },
   },
 }));
@@ -75,7 +82,7 @@ const Navbar = () => {
         >
           <MenuIcon />
         </IconButton>
-        <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+        <Typography variant="h6" component="div" sx={{ flexGrow: 1, fontFamily: 'Pacifico', fontSize: '33px', color: '#ffffff' }}>
           <Box sx={{ display: 'flex', alignItems: 'center' }}>
             {/* <Box
               component="img"

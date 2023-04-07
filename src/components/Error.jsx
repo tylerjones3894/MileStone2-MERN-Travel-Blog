@@ -16,17 +16,18 @@ const Error404 = () => {
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
-        minHeight: '100vh'
+        minHeight: '100vh',
+        cursor: 'not-allowed'
       }}
     >
       <Container maxWidth="md">
         <Grid container spacing={2}>
           <Grid xs={6}>
-            <Typography variant="h1">
+            <Typography variant="h1" sx={{ fontFamily: 'system-ui', fontWeight: '900' }}>
               404
             </Typography>
-            <Typography variant="h6">
-              Sorry, this page was lost in transit..
+            <Typography variant="h6" sx={{ fontFamily: 'system-ui' }}>
+              Sorry, this page was lost in transit...
             </Typography>
             <Button onClick={handleClick} variant="contained">Back Home</Button>
           </Grid>
