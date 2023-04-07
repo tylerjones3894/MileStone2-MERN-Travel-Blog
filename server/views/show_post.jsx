@@ -9,9 +9,10 @@ function ShowPost ({post}) {
               <input type='submit' value="DELETE"/>
         </form>
         <a href={`/posts/${post.id}/edit`}><button>Edit</button></a>
-        <p>{post.blogDescription}</p>
-        <p>{post.details}</p>
+        <p>{post.author}</p>
         <p>{post.date}</p>
+        <p>{post.destination}</p>
+        <p>{post.postContent}</p>
         <img src={post.imageURL} />
       </Default>
     )
