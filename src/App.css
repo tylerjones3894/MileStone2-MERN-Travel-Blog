@@ -98,3 +98,29 @@ p{
   font-family: 'Lato', sans-serif;
 }
 
+.destcard {
+  position: relative;
+}
+
+.destcard-container {
+  position: relative;
+  padding: 20px;
+}
+
+.destcard-location {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 25px;
+  font-weight: bold;
+  text-shadow: 2px 2px #000000;
+}
+
+.destcard-image {
+  display: block;
+  margin: 0 auto;
+  max-width: 100%;
+  height: auto;
+}
