@@ -2,10 +2,14 @@
 
 The inspiration of this project comes from our group members’ interests in traveling and sharing our personal experiences. Our Travel Blog project displays group collaboration and our growth in both front and back-end development. 
 
-The use of this application is fully customizable! It allows those who have traveled to share their stories, recommendations, and experiences while also being able to comment on other posts. 
+The use of this application is fully customizable! It allows those who have traveled to share their stories, recommendations, photos and overall experiences. 
 
 
 ## Technologies Used For Application
+
+Database used for our travel blog is MONGODB.
+
+Material UI open-source react component library was used to aid travel blog's design.
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
@@ -39,9 +43,7 @@ See the section about [deployment](https://facebook.github.io/create-react-app/d
 If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
 
-## Outstanding Bugs or Unfinished Functionality Marlon B. Guillermo R.
-Hello world 
-
+## Outstanding Bugs or Unfinished Functionality 
 
 
 
