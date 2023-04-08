@@ -124,3 +124,8 @@ p{
   max-width: 100%;
   height: auto;
 }
+
+.imagelogo{
+  width: 140px;
+  height: 100%;
+}
