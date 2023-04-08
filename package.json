@@ -1,7 +1,7 @@
 {
   "name": "travel_blog",
   "version": "0.1.0",
-  "proxy": "https://mern-travel-blog.onrender.com",
+  "proxy": "/posts",
   "private": true,
   "dependencies": {
     "@emotion/react": "^11.10.6",
