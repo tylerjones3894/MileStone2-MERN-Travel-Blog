@@ -84,12 +84,13 @@ const Navbar = () => {
         </IconButton>
         <Typography variant="h6" component="div" sx={{ flexGrow: 1, fontFamily: 'Pacifico', fontSize: '33px', color: '#ffffff' }}>
           <Box sx={{ display: 'flex', alignItems: 'center' }}>
-            {/* <Box
+            <Box
               component="img"
-              src="#"
-              sx={{ width: 40, mr: 1 }}
-            /> */}
-            Travel Blog
+              src="https://i.ibb.co/gjpLbny/TBlogo.jpg"
+              className='imagelogo'
+              sx={{ width: 100, mr: 1 }}
+            />
+        
           </Box>
         </Typography>
         <Link to="/" style={linkStyle}>
@@ -99,7 +100,7 @@ const Navbar = () => {
             <Button color="inherit">ABOUT US</Button>
           </Link>
           <Link to="/destination" style={linkStyle}>
-            <Button color="inherit">DESTINATION</Button>
+            <Button color="inherit">DESTINATIONS</Button>
           </Link>
           <Link to="/contact" style={linkStyle}>
             <Button color="inherit">CONTACT</Button>
@@ -120,10 +121,6 @@ const Navbar = () => {
           <TwitterIcon />
         </IconButton>
       </Toolbar>
-
-
-    
-      
     </AppBar>
    
     </div>
