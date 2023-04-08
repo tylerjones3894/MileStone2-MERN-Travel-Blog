@@ -1,29 +1,41 @@
-import React from "react";
-import { useParams } from "react-router-dom";
+import React, { useState, useEffect } from 'react';
+import DestinationCard from './DestinationCard';
+import 'react-responsive-carousel/lib/styles/carousel.min.css';
 
-const Destination = ({ destinations }) => {
-    const { destinationId } = useParams();
-    const destination = destinations.find(dest => dest.id === destinationId);
 
-    return (
-        <div className="destination-page">
-            <div className="destination-header">
-                <h1>{destination.name}</h1>
-                <img src={destination.image} alt={destination.name} />
+const Destination = () => {
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    fetchPosts();
+  }, []);
+
+  const fetchPosts = async () => {
+    try {
+      const response = await fetch(`/posts`);
+      if (!response.ok) {
+        throw new Error(`HTTP error! Status: ${response.status}`);
+      }
+      const postData = await response.json();
+      setData(postData);
+    } catch (error) {
+      console.error('Error fetching data:', error);
+    }
+  };
+
+  return (
+    <div>
+      <div className="container">
+        <div className="blog-posts">
+          {data.map((post) => (
+            <div className="post-wrapper" key={post._id}>
+              <DestinationCard post={post} />
             </div>
-            <div className="destination-description">
-                <p>{destination.description}</p>
-            </div>
-            <div className="destination-activities">
-                <h2>Fun stuff to do in {destination.name}</h2>
-                <ul>
-                    {destination.activities.map(activity => (
-                        <li key={activity.id}>{activity.name}</li>
-                    ))}
-                </ul>
-            </div>
+          ))}
         </div>
-    );
+      </div>
+    </div>
+  );
 };
 
 export default Destination;
