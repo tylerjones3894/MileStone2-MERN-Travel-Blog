@@ -4,9 +4,10 @@ const DestinationCard = ({ post }) => {
 
     return (
         <div className="destcard">
-            
-          <img src={post.imageUrl} alt={post.title} />
+          <div className='destcard-container'>
+          <img src={post.imageUrl} alt={post.title} className='destcard-image' />
             <p className="destcard-location">  {post.destination}</p>
+        </div>
         </div>
       );
     };
